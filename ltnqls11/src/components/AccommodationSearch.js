@@ -517,7 +517,7 @@ const AccommodationSearch = ({ geminiService }) => {
               
               <PriceInfo>
                 <Price>{accommodation.price_per_night?.toLocaleString()}원</Price>
-                {accommodation.original_price > accommodation.price_per_night && (
+                {accommodation.original_price && accommodation.original_price > accommodation.price_per_night && (
                   <>
                     <OriginalPrice>{accommodation.original_price?.toLocaleString()}원</OriginalPrice>
                     <Discount>{accommodation.discount_rate}% 할인</Discount>
@@ -526,8 +526,8 @@ const AccommodationSearch = ({ geminiService }) => {
               </PriceInfo>
               
               <Amenities>
-                {accommodation.amenities?.slice(0, 4).map(amenity => (
-                  <AmenityIcon key={amenity}>
+                {accommodation.amenities?.slice(0, 4).map((amenity, index) => (
+                  <AmenityIcon key={`${accommodation.id}-amenity-${index}`}>
                     {getAmenityIcon(amenity)}
                     {amenity}
                   </AmenityIcon>
@@ -536,7 +536,7 @@ const AccommodationSearch = ({ geminiService }) => {
               
               <DistanceInfo>
                 <h4 style={{margin: '0 0 0.5rem 0', fontSize: '0.9rem'}}>영화관까지 거리</h4>
-                {Object.entries(accommodation.distance_to_cinema || {}).map(([cinema, distance]) => (
+                {accommodation.distance_to_cinema && Object.entries(accommodation.distance_to_cinema).map(([cinema, distance]) => (
                   <DistanceItem key={cinema}>
                     <span>{cinema}</span>
                     <span>{distance}</span>

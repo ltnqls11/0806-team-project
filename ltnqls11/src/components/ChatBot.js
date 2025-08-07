@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Send, Bot, User, ChevronDown, Zap } from 'lucide-react';
+import BiffDataService from '../services/biffDataService';
 
 const ChatContainer = styled.div`
   background: white;
@@ -235,7 +236,7 @@ const ChatBot = ({ geminiService }) => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "안녕하세요! 저는 BIFF 29회 부산 여행 전문 AI 어시스턴트입니다. 🎬\n\n부산국제영화제, 부산 여행, 맛집, 숙소, 교통, 예산 계획 등 무엇이든 자연스럽게 대화하듯 물어보세요!",
+      text: "안녕하세요! 저는 BIFF 29회 부산 여행 전문 AI 어시스턴트입니다. 🎬\n\n나무위키에서 크롤링한 정확한 정보를 바탕으로 부산국제영화제, 부산 여행, 맛집, 숙소, 교통, 예산 계획 등 무엇이든 자연스럽게 대화하듯 물어보세요!",
       isUser: false,
       timestamp: new Date()
     }
@@ -244,71 +245,29 @@ const ChatBot = ({ geminiService }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showQuickQuestions, setShowQuickQuestions] = useState(true);
   const messagesEndRef = useRef(null);
-
-  // 빠른 질문 데이터
-  const quickQuestions = {
-    "🎬 BIFF 일정 관련": [
-      "BIFF 일정 알려줘",
-      "영화 티켓 가격은?",
-      "상영관 위치 알려줘",
-    ],
-    "🎉 부산 청년패스 할인": [
-      "청년패스 할인 정보",
-      "할인 혜택 어떻게 받아?",
-      "청년패스 신청 방법",
-      "할인 받을 수 있는 곳",
-      "청년패스 사용법",
-      "할인 혜택 총정리"
-    ],
-    "💰 3박4일 예산 계산": [
-      "3박4일 예산 계산",
-      "저예산 여행 팁",
-      "숙박비 절약 방법",
-      "맛집 가격대 알려줘",
-      "일일 예산 얼마?",
-      "예산별 일정 추천"
-    ],
-    "📅 영화+관광 일정 추천": [
-      "영화+관광 일정 추천",
-      "센텀시티 근처 관광지",
-      "영화 보고 갈 만한 곳",
-      "하루 일정 짜줘",
-      "2박3일 일정표",
-      "필수 코스 알려줘"
-    ],
-    "💡 여행 절약 팁": [
-      "여행 절약 팁 알려줘",
-      "무료 관광지 추천",
-      "교통비 아끼는 법",
-      "현지인 맛집 추천",
-      "할인 쿠폰 정보",
-      "가성비 숙소 찾기"
-    ],
-    "🚇 부산 교통/숙소": [
-      "지하철 노선도 설명",
-      "영화관 가는 법",
-      "센텀시티 숙소 추천",
-      "교통카드 어디서 사?",
-      "공항에서 센텀시티",
-      "KTX역에서 영화관"
-    ],
-    "🍽️ 부산 맛집 정보": [
-      "돼지국밥 맛집 추천",
-      "밀면 어디서 먹지?",
-      "자갈치시장 회센터",
-      "센텀시티 맛집",
-      "해운대 맛집 추천",
-      "야식 추천해줘"
-    ],
-    "🌤️ 날씨/준비물": [
-      "10월 부산 날씨",
-      "뭘 입고 가야 해?",
-      "우산 필요해?",
-      "짐 체크리스트",
-      "필수 준비물",
-      "카메라 추천"
-    ]
-  };
+  // BIFF 29회 빠른 질문 데이터 (5개)
+  const quickQuestions = [
+    {
+      "question": "BIFF 전체 일정은 어떻게 되나요?",
+      "answer": "2024년 부산국제영화제(BIFF)는 10월 2일부터 10월 11일까지 부산 해운대 일대에서 열렸습니다. 올해는 10일간 전 세계 70여 개국 200편 이상의 영화가 상영되었습니다."
+    },
+    {
+      "question": "영화 상영 시간표는 어디서 확인할 수 있나요?",
+      "answer": "BIFF 공식 홈페이지(www.biff.kr)와 모바일 앱을 통해 상영 시간표와 상영관 정보를 확인할 수 있습니다. 일정은 매일 업데이트되며, 영화별 상세정보도 제공됩니다."
+    },
+    {
+      "question": "사전 예약 없이 현장에서도 티켓 구매가 가능한 일정이 있나요?",
+      "answer": "네, 상영 당일 잔여 좌석이 있는 경우, 현장 매표소에서 티켓 구매가 가능합니다. 단, 인기 작품은 조기 매진될 수 있으므로 사전 예매를 권장합니다."
+    },
+    {
+      "question": "개막작, 폐막작은 어떤 영화인가요?",
+      "answer": "2024년 개막작은 김상만 감독의 '전, 란', 폐막작은 에릭 쿠의 감독의 '영혼의 여행'입니다."
+    },
+    {
+      "question": "BIFF 주변 맛집 추천해줘",
+      "answer": "BIFF가 열리는 해운대 일대에는 '원조 조방낙지', '이제모피자', '오반장 밀면', '해운대 암소갈비집' 등 인기 맛집이 많이 있습니다. 영화 관람 전후로 들르기 좋아요!"
+    }
+  ];
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -390,8 +349,24 @@ BIFF 29회 (2024) 정보:
     }
   };
 
-  const handleQuickQuestion = (question) => {
-    handleSendMessage(question);
+  const handleQuickQuestion = (questionObj) => {
+    // 질문을 사용자 메시지로 추가
+    const userMessage = {
+      id: Date.now(),
+      text: questionObj.question,
+      isUser: true,
+      timestamp: new Date()
+    };
+
+    // 답변을 AI 메시지로 추가
+    const botMessage = {
+      id: Date.now() + 1,
+      text: questionObj.answer,
+      isUser: false,
+      timestamp: new Date()
+    };
+
+    setMessages(prev => [...prev, userMessage, botMessage]);
   };
 
   const handleKeyPress = (e) => {
@@ -440,17 +415,15 @@ BIFF 29회 (2024) 정보:
 
         <QuickQuestionsContent expanded={showQuickQuestions}>
           <QuickQuestionGrid>
-            {Object.entries(quickQuestions).slice(0, 1).map(([category, questions]) =>
-              questions.slice(0, 6).map((question, index) => (
-                <QuickQuestionButton
-                  key={index}
-                  onClick={() => handleQuickQuestion(question)}
-                  disabled={isLoading}
-                >
-                  {question}
-                </QuickQuestionButton>
-              ))
-            )}
+            {quickQuestions.map((questionObj, index) => (
+              <QuickQuestionButton
+                key={index}
+                onClick={() => handleQuickQuestion(questionObj)}
+                disabled={isLoading}
+              >
+                {questionObj.question}
+              </QuickQuestionButton>
+            ))}
           </QuickQuestionGrid>
         </QuickQuestionsContent>
       </QuickQuestionsContainer>

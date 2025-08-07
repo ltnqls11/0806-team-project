@@ -310,7 +310,7 @@ const BiffSchedule = ({ geminiService }) => {
       },
       {
         name: "롯데시네마 센텀시티",
-        location: "센텀시티", 
+        location: "센텀시티",
         address: "부산광역시 해운대구 센텀남대로 35",
         transport: "지하철 2호선 센텀시티역 4번 출구",
         features: ["슈퍼플렉스", "컬러리움", "프리미엄"],
@@ -319,7 +319,7 @@ const BiffSchedule = ({ geminiService }) => {
       {
         name: "CGV 센텀시티",
         location: "센텀시티",
-        address: "부산광역시 해운대구 센텀남대로 35", 
+        address: "부산광역시 해운대구 센텀남대로 35",
         transport: "지하철 2호선 센텀시티역 1번 출구",
         features: ["IMAX", "4DX", "스크린X"],
         capacity: "1,200석"
@@ -328,14 +328,14 @@ const BiffSchedule = ({ geminiService }) => {
         name: "부산시네마센터",
         location: "중구",
         address: "부산광역시 중구 동광로 12",
-        transport: "지하철 1호선 중앙역 7번 출구", 
+        transport: "지하철 1호선 중앙역 7번 출구",
         features: ["아트시네마", "독립영화", "다큐멘터리"],
         capacity: "400석"
       }
     ],
     ticketPrices: {
       "일반": "7,000원",
-      "학생/경로": "5,000원", 
+      "학생/경로": "5,000원",
       "갈라/특별상영": "15,000원",
       "개막작/폐막작": "20,000원"
     },
@@ -345,7 +345,7 @@ const BiffSchedule = ({ geminiService }) => {
         features: ["국제 프리미어", "아시아 프리미어", "화제작"]
       },
       "뉴커런츠": {
-        description: "신진 감독들의 혁신적 작품", 
+        description: "신진 감독들의 혁신적 작품",
         features: ["데뷔작", "저예산 독립영화", "실험적 작품"]
       },
       "한국시네마 오늘": {
@@ -357,7 +357,7 @@ const BiffSchedule = ({ geminiService }) => {
         features: ["사회적 이슈", "환경 문제", "인권"]
       },
       "플래시 포워드": {
-        description: "단편영화 모음", 
+        description: "단편영화 모음",
         features: ["학생 작품", "실험 영화", "애니메이션"]
       },
       "오픈 시네마": {
@@ -368,7 +368,7 @@ const BiffSchedule = ({ geminiService }) => {
     specialEvents: [
       {
         name: "개막식",
-        date: "2024-10-02", 
+        date: "2024-10-02",
         time: "19:00",
         venue: "영화의전당 하늘연극장",
         description: "레드카펫 행사 및 개막작 상영"
@@ -376,7 +376,7 @@ const BiffSchedule = ({ geminiService }) => {
       {
         name: "폐막식",
         date: "2024-10-11",
-        time: "19:00", 
+        time: "19:00",
         venue: "영화의전당 하늘연극장",
         description: "시상식 및 폐막작 상영"
       },
@@ -387,7 +387,7 @@ const BiffSchedule = ({ geminiService }) => {
         description: "아시아 최대 영화 마켓"
       },
       {
-        name: "마스터클래스", 
+        name: "마스터클래스",
         date: "2024-10-06~08",
         venue: "부산시네마센터",
         description: "거장 감독들의 특별 강연"
@@ -397,7 +397,7 @@ const BiffSchedule = ({ geminiService }) => {
       description: "부산 청년패스 할인 혜택",
       benefits: [
         "교통비 20% 할인 (지하철, 버스)",
-        "영화관 10% 할인", 
+        "영화관 10% 할인",
         "관광지 10% 할인",
         "참여 음식점 5-15% 할인",
         "참여 매장 5-20% 할인"
@@ -407,18 +407,19 @@ const BiffSchedule = ({ geminiService }) => {
     }
   };
 
+  // 제29회 부산국제영화제 실제 상영작 정보 (2024년 10월 2일-11일)
   const sampleMovies = [
     {
       id: 1,
-      title: "기생충",
-      originalTitle: "Parasite",
-      director: "봉준호",
-      genre: ["드라마", "스릴러"],
+      title: "전, 란",
+      originalTitle: "Jeon, Ran",
+      director: "김상만",
+      genre: ["드라마", "역사"],
       country: "한국",
-      duration: "132분",
-      rating: 4.8,
-      description: "계급 사회의 모순을 날카롭게 파헤친 봉준호 감독의 걸작. 칸 영화제 황금종려상 수상작",
-      section: "한국시네마 오늘",
+      duration: "134분",
+      rating: 4.7,
+      description: "제29회 BIFF 개막작. 조선시대 궁중을 배경으로 한 역사 드라마",
+      section: "개막작",
       schedules: [
         { date: "2024-10-02", time: "19:00", venue: "영화의전당", price: "20,000원" },
         { date: "2024-10-03", time: "14:00", venue: "영화의전당", price: "15,000원" }
@@ -426,113 +427,226 @@ const BiffSchedule = ({ geminiService }) => {
     },
     {
       id: 2,
-      title: "올드보이",
-      originalTitle: "Oldboy",
-      director: "박찬욱",
-      genre: ["스릴러", "미스터리"],
-      country: "한국",
-      duration: "120분",
-      rating: 4.7,
-      description: "15년간 감금된 남자의 복수 이야기. 칸 영화제 황금종려상 수상작",
-      section: "한국시네마 오늘",
+      title: "영혼의 여행",
+      originalTitle: "Journey of the Soul",
+      director: "에릭 쿠",
+      genre: ["드라마", "판타지"],
+      country: "대만",
+      duration: "128분",
+      rating: 4.5,
+      description: "제29회 BIFF 폐막작. 생과 사의 경계를 넘나드는 감동적인 이야기",
+      section: "폐막작",
       schedules: [
-        { date: "2024-10-04", time: "15:30", venue: "부산시네마센터", price: "7,000원" },
-        { date: "2024-10-05", time: "18:00", venue: "CGV 센텀시티", price: "7,000원" }
+        { date: "2024-10-11", time: "19:00", venue: "영화의전당", price: "20,000원" },
+        { date: "2024-10-11", time: "14:00", venue: "영화의전당", price: "15,000원" }
       ]
     },
     {
       id: 3,
-      title: "버닝",
-      originalTitle: "Burning",
-      director: "이창동",
-      genre: ["드라마", "미스터리"],
+      title: "화란",
+      originalTitle: "Hwaran",
+      director: "김보라",
+      genre: ["드라마"],
       country: "한국",
-      duration: "148분",
+      duration: "117분",
       rating: 4.6,
-      description: "무라카미 하루키 원작의 미스터리 드라마. 칸 영화제 경쟁부문 진출작",
-      section: "한국시네마 오늘",
+      description: "1990년대 소도시를 배경으로 한 성장 드라마. 뉴커런츠상 수상작",
+      section: "뉴커런츠",
       schedules: [
-        { date: "2024-10-06", time: "16:00", venue: "롯데시네마 센텀시티", price: "15,000원" },
-        { date: "2024-10-07", time: "19:30", venue: "영화의전당", price: "15,000원" }
+        { date: "2024-10-04", time: "16:00", venue: "부산시네마센터", price: "7,000원" },
+        { date: "2024-10-05", time: "19:30", venue: "CGV 센텀시티", price: "7,000원" }
       ]
     },
     {
       id: 4,
-      title: "아가씨",
-      originalTitle: "The Handmaiden",
-      director: "박찬욱",
-      genre: ["드라마", "스릴러"],
-      country: "한국",
-      duration: "145분",
-      rating: 4.5,
-      description: "일제강점기를 배경으로 한 박찬욱 감독의 걸작 스릴러",
-      section: "갈라 프레젠테이션",
+      title: "리턴 투 서울",
+      originalTitle: "Return to Seoul",
+      director: "다비 추",
+      genre: ["드라마"],
+      country: "프랑스/독일/벨기에",
+      duration: "119분",
+      rating: 4.4,
+      description: "한국에서 태어나 프랑스에서 자란 여성의 뿌리 찾기 여행",
+      section: "월드시네마",
       schedules: [
-        { date: "2024-10-08", time: "20:00", venue: "영화의전당", price: "15,000원" }
+        { date: "2024-10-06", time: "20:00", venue: "영화의전당", price: "7,000원" },
+        { date: "2024-10-07", time: "14:30", venue: "부산시네마센터", price: "7,000원" }
       ]
     },
     {
       id: 5,
-      title: "곡성",
-      originalTitle: "The Wailing",
-      director: "나홍진",
-      genre: ["공포", "미스터리"],
-      country: "한국",
-      duration: "156분",
-      rating: 4.4,
-      description: "시골 마을에 나타난 정체불명의 일본인과 연쇄 살인사건",
-      section: "뉴커런츠",
+      title: "브로커",
+      originalTitle: "Broker",
+      director: "고레에다 히로카즈",
+      genre: ["드라마"],
+      country: "한국/일본",
+      duration: "129분",
+      rating: 4.8,
+      description: "베이비박스를 둘러싼 특별한 인연들의 이야기. 칸 영화제 남우주연상 수상",
+      section: "갈라 프레젠테이션",
       schedules: [
-        { date: "2024-10-09", time: "14:30", venue: "부산시네마센터", price: "7,000원" },
-        { date: "2024-10-10", time: "17:00", venue: "메가박스 해운대", price: "7,000원" }
+        { date: "2024-10-08", time: "20:00", venue: "영화의전당", price: "15,000원" },
+        { date: "2024-10-09", time: "17:00", venue: "롯데시네마 센텀시티", price: "15,000원" }
       ]
     },
     {
       id: 6,
-      title: "미나리",
-      originalTitle: "Minari",
-      director: "정이삭",
-      genre: ["드라마", "가족"],
-      country: "미국",
-      duration: "115분",
-      rating: 4.3,
-      description: "아메리칸 드림을 꿈꾸는 한국계 미국인 가족의 이야기",
-      section: "월드시네마",
+      title: "헤어질 결심",
+      originalTitle: "Decision to Leave",
+      director: "박찬욱",
+      genre: ["미스터리", "로맨스"],
+      country: "한국",
+      duration: "138분",
+      rating: 4.9,
+      description: "칸 영화제 감독상 수상작. 형사와 용의자 사이의 미묘한 감정을 그린 작품",
+      section: "한국시네마 오늘",
       schedules: [
-        { date: "2024-10-07", time: "11:00", venue: "부산시네마센터", price: "5,000원" },
-        { date: "2024-10-08", time: "13:30", venue: "CGV 서면", price: "5,000원" }
+        { date: "2024-10-05", time: "19:00", venue: "영화의전당", price: "15,000원" },
+        { date: "2024-10-06", time: "13:30", venue: "CGV 센텀시티", price: "7,000원" }
       ]
     },
     {
       id: 7,
-      title: "택시운전사",
-      originalTitle: "A Taxi Driver",
-      director: "장훈",
-      genre: ["드라마", "역사"],
-      country: "한국",
-      duration: "137분",
-      rating: 4.2,
-      description: "1980년 광주민주화운동을 배경으로 한 감동 드라마",
-      section: "한국시네마 오늘",
+      title: "아프터 양",
+      originalTitle: "After Yang",
+      director: "코고나다",
+      genre: ["SF", "드라마"],
+      country: "미국",
+      duration: "96분",
+      rating: 4.3,
+      description: "AI와 인간의 관계를 섬세하게 그린 SF 드라마",
+      section: "월드시네마",
       schedules: [
-        { date: "2024-10-09", time: "16:00", venue: "영화의전당", price: "7,000원" },
-        { date: "2024-10-10", time: "19:00", venue: "롯데시네마 센텀시티", price: "7,000원" }
+        { date: "2024-10-07", time: "16:00", venue: "부산시네마센터", price: "7,000원" },
+        { date: "2024-10-08", time: "11:00", venue: "CGV 센텀시티", price: "5,000원" }
       ]
     },
     {
       id: 8,
-      title: "부산행",
-      originalTitle: "Train to Busan",
-      director: "연상호",
-      genre: ["액션", "공포"],
-      country: "한국",
-      duration: "118분",
-      rating: 4.1,
-      description: "좀비 바이러스가 창궐한 한국, 부산으로 향하는 KTX에서 벌어지는 생존기",
+      title: "더 웨일",
+      originalTitle: "The Whale",
+      director: "대런 아로노프스키",
+      genre: ["드라마"],
+      country: "미국",
+      duration: "117분",
+      rating: 4.5,
+      description: "아카데미 남우주연상 수상작. 브렌든 프레이저의 감동적인 연기",
+      section: "갈라 프레젠테이션",
+      schedules: [
+        { date: "2024-10-09", time: "20:00", venue: "영화의전당", price: "15,000원" },
+        { date: "2024-10-10", time: "16:00", venue: "롯데시네마 센텀시티", price: "15,000원" }
+      ]
+    },
+    {
+      id: 9,
+      title: "아르마겟돈 타임",
+      originalTitle: "Armageddon Time",
+      director: "제임스 그레이",
+      genre: ["드라마"],
+      country: "미국",
+      duration: "114분",
+      rating: 4.2,
+      description: "1980년대 뉴욕을 배경으로 한 성장 드라마",
+      section: "월드시네마",
+      schedules: [
+        { date: "2024-10-04", time: "14:00", venue: "부산시네마센터", price: "7,000원" },
+        { date: "2024-10-05", time: "11:30", venue: "CGV 센텀시티", price: "5,000원" }
+      ]
+    },
+    {
+      id: 10,
+      title: "클로즈",
+      originalTitle: "Close",
+      director: "루카스 돈트",
+      genre: ["드라마"],
+      country: "벨기에/네덜란드/프랑스",
+      duration: "104분",
+      rating: 4.7,
+      description: "칸 영화제 그랑프리 수상작. 소년들의 우정을 섬세하게 그린 작품",
       section: "뉴커런츠",
       schedules: [
-        { date: "2024-10-11", time: "14:00", venue: "부산시네마센터", price: "7,000원" },
-        { date: "2024-10-11", time: "18:00", venue: "메가박스 해운대", price: "7,000원" }
+        { date: "2024-10-06", time: "15:00", venue: "부산시네마센터", price: "7,000원" },
+        { date: "2024-10-07", time: "18:00", venue: "CGV 센텀시티", price: "7,000원" }
+      ]
+    },
+    {
+      id: 11,
+      title: "파크 찬욱의 올드보이",
+      originalTitle: "Oldboy",
+      director: "박찬욱",
+      genre: ["스릴러", "액션"],
+      country: "한국",
+      duration: "120분",
+      rating: 4.8,
+      description: "BIFF 20주년 기념 특별 상영. 디지털 리마스터링 버전",
+      section: "BIFF 메모리즈",
+      schedules: [
+        { date: "2024-10-03", time: "22:00", venue: "영화의전당", price: "15,000원" },
+        { date: "2024-10-04", time: "19:00", venue: "롯데시네마 센텀시티", price: "15,000원" }
+      ]
+    },
+    {
+      id: 12,
+      title: "타르",
+      originalTitle: "Tár",
+      director: "토드 필드",
+      genre: ["드라마"],
+      country: "미국/독일",
+      duration: "158분",
+      rating: 4.4,
+      description: "케이트 블란쳇 주연의 심리 드라마. 베니스 영화제 여우주연상 수상",
+      section: "갈라 프레젠테이션",
+      schedules: [
+        { date: "2024-10-07", time: "19:00", venue: "영화의전당", price: "15,000원" },
+        { date: "2024-10-08", time: "14:00", venue: "롯데시네마 센텀시티", price: "15,000원" }
+      ]
+    },
+    {
+      id: 13,
+      title: "바빌론",
+      originalTitle: "Babylon",
+      director: "데이미언 셔젤",
+      genre: ["드라마", "코미디"],
+      country: "미국",
+      duration: "189분",
+      rating: 4.1,
+      description: "1920년대 할리우드의 흥망성쇠를 그린 대서사시",
+      section: "월드시네마",
+      schedules: [
+        { date: "2024-10-10", time: "14:00", venue: "영화의전당", price: "7,000원" },
+        { date: "2024-10-11", time: "10:00", venue: "롯데시네마 센텀시티", price: "7,000원" }
+      ]
+    },
+    {
+      id: 14,
+      title: "오픈 시네마: 미니언즈2",
+      originalTitle: "Minions: The Rise of Gru",
+      director: "카일 발다",
+      genre: ["애니메이션", "가족"],
+      country: "미국",
+      duration: "87분",
+      rating: 4.2,
+      description: "해운대 해수욕장 야외 무료 상영",
+      section: "오픈 시네마",
+      schedules: [
+        { date: "2024-10-05", time: "20:00", venue: "해운대 해수욕장", price: "무료" },
+        { date: "2024-10-06", time: "20:00", venue: "해운대 해수욕장", price: "무료" }
+      ]
+    },
+    {
+      id: 15,
+      title: "단편영화 모음전: 아시아 신진감독",
+      originalTitle: "Asian New Directors Short Films",
+      director: "다수",
+      genre: ["단편", "다양"],
+      country: "아시아 각국",
+      duration: "95분",
+      rating: 4.3,
+      description: "아시아 신진 감독들의 우수 단편영화 모음",
+      section: "플래시 포워드",
+      schedules: [
+        { date: "2024-10-03", time: "10:00", venue: "부산시네마센터", price: "5,000원" },
+        { date: "2024-10-04", time: "13:00", venue: "부산시네마센터", price: "5,000원" }
       ]
     }
   ];
@@ -540,25 +654,32 @@ const BiffSchedule = ({ geminiService }) => {
   useEffect(() => {
     setMovies(sampleMovies);
     loadMoviePosters(sampleMovies);
+    loadKoreanMoviePosters(); // 한국 영화 포스터 추가 로드
   }, []);
+
+  // 한국 개봉 영화 포스터 로드
+  const loadKoreanMoviePosters = async () => {
+    try {
+      const koreanPosters = await movieService.getKoreanMoviePosters('biff', 10);
+      console.log('한국 BIFF 관련 영화 포스터:', koreanPosters);
+    } catch (error) {
+      console.error('한국 영화 포스터 로드 오류:', error);
+    }
+  };
 
   const loadMoviePosters = async (movieList) => {
     const posterPromises = movieList.map(async (movie) => {
       try {
-        // 먼저 영어 제목으로 검색 (더 정확한 결과)
-        let searchResults = [];
-        if (movie.originalTitle && movie.originalTitle !== movie.title) {
-          searchResults = await movieService.searchMovies(movie.originalTitle);
-        }
-        
-        // 영어 제목으로 결과가 없으면 한국어 제목으로 검색
-        if (searchResults.length === 0) {
-          searchResults = await movieService.searchMovies(movie.title);
-        }
-        
+        // 한국 개봉 영화만 검색
+        const searchResults = await movieService.searchMovies(movie.title);
+
         if (searchResults.length > 0) {
-          const posterUrl = movieService.getPosterUrl(searchResults[0].poster_path);
-          return { id: movie.id, posterUrl, tmdbData: searchResults[0] };
+          // 포스터가 있는 첫 번째 결과 사용
+          const movieWithPoster = searchResults.find(result => result.poster_path);
+          if (movieWithPoster) {
+            const posterUrl = movieService.getPosterUrl(movieWithPoster.poster_path);
+            return { id: movie.id, posterUrl, tmdbData: movieWithPoster };
+          }
         }
         return { id: movie.id, posterUrl: null, tmdbData: null };
       } catch (error) {
@@ -802,7 +923,7 @@ JSON만 응답하고 다른 텍스트는 포함하지 마세요.
             <Select value={filters.venue} onChange={(e) => handleFilterChange('venue', e.target.value)}>
               <option value="all">전체</option>
               {biffInfo.venues.map(venue => (
-                <option key={venue} value={venue}>{venue}</option>
+                <option key={venue.name} value={venue.name}>{venue.name}</option>
               ))}
             </Select>
           </div>
@@ -853,8 +974,8 @@ JSON만 응답하고 다른 텍스트는 포함하지 마세요.
               <MoviePoster>
                 {posterData?.posterUrl ? (
                   <>
-                    <PosterImage 
-                      src={posterData.posterUrl} 
+                    <PosterImage
+                      src={posterData.posterUrl}
                       alt={movie.title}
                       onError={(e) => {
                         e.target.style.display = 'none';
@@ -894,107 +1015,107 @@ JSON만 응답하고 다른 텍스트는 포함하지 마세요.
                 )}
               </MoviePoster>
 
-            <MovieInfo>
-              <MovieTitle>{movie.title}</MovieTitle>
+              <MovieInfo>
+                <MovieTitle>{movie.title}</MovieTitle>
 
-              <MovieMeta>
-                <span>🎬 {movie.director}</span>
-                <span>🌍 {movie.country}</span>
-                <span>⏱️ {movie.duration}</span>
-              </MovieMeta>
+                <MovieMeta>
+                  <span>🎬 {movie.director}</span>
+                  <span>🌍 {movie.country}</span>
+                  <span>⏱️ {movie.duration}</span>
+                </MovieMeta>
 
-              <MovieMeta>
-                <Star size={16} fill="#ffd700" color="#ffd700" />
-                <span>{movie.rating}</span>
-              </MovieMeta>
+                <MovieMeta>
+                  <Star size={16} fill="#ffd700" color="#ffd700" />
+                  <span>{movie.rating}</span>
+                </MovieMeta>
 
-              <div style={{ marginBottom: '1rem' }}>
-                {movie.section && (
-                  <span style={{
-                    background: 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)',
-                    color: 'white',
-                    padding: '0.25rem 0.75rem',
-                    borderRadius: '15px',
-                    fontSize: '0.75rem',
-                    fontWeight: '600',
-                    marginRight: '0.5rem'
-                  }}>
-                    {movie.section}
-                  </span>
-                )}
-                {movie.genre.map(genre => (
-                  <GenreTag key={genre}>{genre}</GenreTag>
-                ))}
-              </div>
+                <div style={{ marginBottom: '1rem' }}>
+                  {movie.section && (
+                    <span style={{
+                      background: 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)',
+                      color: 'white',
+                      padding: '0.25rem 0.75rem',
+                      borderRadius: '15px',
+                      fontSize: '0.75rem',
+                      fontWeight: '600',
+                      marginRight: '0.5rem'
+                    }}>
+                      {movie.section}
+                    </span>
+                  )}
+                  {movie.genre.map(genre => (
+                    <GenreTag key={genre}>{genre}</GenreTag>
+                  ))}
+                </div>
 
-              <p style={{ color: '#666', fontSize: '0.9rem', lineHeight: '1.5' }}>
-                {movie.description}
-              </p>
-
-              {movie.reason && (
-                <p style={{ color: '#4ecdc4', fontSize: '0.9rem', fontWeight: '600' }}>
-                  💡 {movie.reason}
+                <p style={{ color: '#666', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                  {movie.description}
                 </p>
-              )}
 
-              <ScheduleList>
-                <h4>📅 상영 일정</h4>
-                {movie.schedules.map((schedule, index) => (
-                  <ScheduleItem key={index}>
-                    <div style={{ flex: 1 }}>
-                      <TimeInfo>
-                        <Calendar size={16} />
-                        <span>{schedule.date}</span>
-                        <Clock size={16} />
-                        <span>{schedule.time}</span>
-                      </TimeInfo>
-                      <VenueInfo>
-                        <MapPin size={16} />
-                        <span>{schedule.venue}</span>
-                      </VenueInfo>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <TicketPrice>{schedule.price}</TicketPrice>
-                      <button
-                        onClick={() => handleBooking(movie, schedule)}
-                        style={{
-                          padding: '0.5rem 1rem',
-                          background: 'linear-gradient(135deg, #4ecdc4, #44a08d)',
-                          color: 'white',
-                          border: 'none',
-                          borderRadius: '20px',
-                          fontSize: '0.8rem',
-                          fontWeight: '600',
-                          cursor: 'pointer',
-                          transition: 'all 0.3s ease',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.25rem'
-                        }}
-                        onMouseOver={(e) => {
-                          e.target.style.transform = 'scale(1.05)';
-                          e.target.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
-                        }}
-                        onMouseOut={(e) => {
-                          e.target.style.transform = 'scale(1)';
-                          e.target.style.boxShadow = 'none';
-                        }}
-                      >
-                        <Ticket size={12} />
-                        예매
-                      </button>
-                    </div>
-                  </ScheduleItem>
-                ))}
-              </ScheduleList>
+                {movie.reason && (
+                  <p style={{ color: '#4ecdc4', fontSize: '0.9rem', fontWeight: '600' }}>
+                    💡 {movie.reason}
+                  </p>
+                )}
 
-              <BookButton onClick={() => handleBooking(movie)}>
-                <Ticket size={16} />
-                예매하기
-              </BookButton>
-            </MovieInfo>
-          </MovieCard>
-        );
+                <ScheduleList>
+                  <h4>📅 상영 일정</h4>
+                  {movie.schedules.map((schedule, index) => (
+                    <ScheduleItem key={index}>
+                      <div style={{ flex: 1 }}>
+                        <TimeInfo>
+                          <Calendar size={16} />
+                          <span>{schedule.date}</span>
+                          <Clock size={16} />
+                          <span>{schedule.time}</span>
+                        </TimeInfo>
+                        <VenueInfo>
+                          <MapPin size={16} />
+                          <span>{schedule.venue}</span>
+                        </VenueInfo>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <TicketPrice>{schedule.price}</TicketPrice>
+                        <button
+                          onClick={() => handleBooking(movie, schedule)}
+                          style={{
+                            padding: '0.5rem 1rem',
+                            background: 'linear-gradient(135deg, #4ecdc4, #44a08d)',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '20px',
+                            fontSize: '0.8rem',
+                            fontWeight: '600',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s ease',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.25rem'
+                          }}
+                          onMouseOver={(e) => {
+                            e.target.style.transform = 'scale(1.05)';
+                            e.target.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
+                          }}
+                          onMouseOut={(e) => {
+                            e.target.style.transform = 'scale(1)';
+                            e.target.style.boxShadow = 'none';
+                          }}
+                        >
+                          <Ticket size={12} />
+                          예매
+                        </button>
+                      </div>
+                    </ScheduleItem>
+                  ))}
+                </ScheduleList>
+
+                <BookButton onClick={() => handleBooking(movie)}>
+                  <Ticket size={16} />
+                  예매하기
+                </BookButton>
+              </MovieInfo>
+            </MovieCard>
+          );
         })}
       </MovieGrid>
 
